@@ -24,6 +24,7 @@
     "@types/node": "catalog:",
     "typescript": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
-    "vite": "catalog:"
+    "vite": "catalog:",
+    "@vue/tsconfig": "catalog:"
   }
 }

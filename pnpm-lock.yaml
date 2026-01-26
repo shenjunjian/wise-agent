@@ -105,6 +105,9 @@ importers:
       '@vitejs/plugin-vue':
         specifier: 'catalog:'
         version: 6.0.3(vite@7.3.1(@types/node@24.10.9)(lightningcss@1.31.1))(vue@3.5.27(typescript@5.9.3))
+      '@vue/tsconfig':
+        specifier: 'catalog:'
+        version: 0.8.1(typescript@5.9.3)(vue@3.5.27(typescript@5.9.3))
       typescript:
         specifier: 'catalog:'
         version: 5.9.3

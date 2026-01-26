@@ -8,7 +8,7 @@ NodeJS & BrowserJS
 
 使用 `Typescript` 开发一个 `WiseAgent` 的 Class类，内部依赖 ai-sdk@v6版本来实现LLM的访问。
 
-`WiseAgent`是一个总的代理管理对象，它内部管理着多个子`agent`对象，每个agent对象与自己擅长的大模型进行对话。初步计划需要包含子`agent`对象有： PlanAgent, ChatAgent , EmbedAgent,BrowserAgent, VoiceAgent,TTSAgent,VisionAgent,GenImageAgent,GenVideo, GenCoderAgent,CriticAgent等，每一轮对话由人类发起，先经过 PlaneAgent进行任务拆分和分派，经过不同的Agent进行处理后，最后由CirticAgent判断任务是否符合用户最初的要求，只有全部符合后才能结束一轮对话。
+`WiseAgent`是一个总的代理管理对象，它内部管理着多个子`agent`对象，每个agent对象与自己擅长的大模型进行对话。初步计划需要包含子`agent`对象有： PlanAgent, ChatAgent , EmbedAgent,BrowserAgent, VoiceAgent,TTSAgent,VisionAgent,GenImageAgent,GenVideo, GenCodeAgent,CriticAgent 等，每一轮对话由人类发起，先经过 PlaneAgent进行任务拆分和分派，经过不同的Agent进行处理后，最后由CirticAgent判断任务是否符合用户最初的要求，只有全部符合后才能结束一轮对话。
 
 ## Agent 统一配置
 
@@ -25,3 +25,17 @@ NodeJS & BrowserJS
 ## 对话的可介入以及局部重试
 
 在每一次子Agent对象对话时或调用工具时，可以停止下来，询问用户是否需要执行。在对话后，如果结果不合适，也可以由人类发起重试对话。
+
+## 子代理的功能
+
+- PlanAgent： 接收对话，生成子任务。 具有 rag,skills 等增强时，需要预先查询数据
+- ChatAgent: 普通对话能力。可能不附带工具
+- EmbedAgent： 配合rag 的子代理
+- BrowserAgent: 读取网页的内容，无障碍树或截图的工具， 打开页面工具，接收 sessionId的工具的代理。
+- VoiceAgent: 语音识别
+- TTSAgent：语音合成
+- VisionAgent： 图像识别
+- GenImageAgent：图像生成
+- GenVideo： 视频生成
+- GenCodeAgent： 代码生成
+- CriticAgent： 审计代理，判断全部任务是否完成
