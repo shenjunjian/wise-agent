@@ -1,0 +1,13 @@
+{
+  "name": "@opentiny/wise-agent",
+  "description": "Opentiny Next 多代理开发",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm -F chat-ui dev",
+    "build": "pnpm -F wise-agent build"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
