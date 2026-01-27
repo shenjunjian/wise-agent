@@ -1,7 +1,7 @@
-import type { AgentConfig } from "../../types";
+import type { AgentConfig } from "../../types.js";
 import { createDeepSeek } from "@ai-sdk/deepseek";
 
-export const chatAgentConfig: AgentConfig[] = [
+export const criticAgentConfig: AgentConfig[] = [
   {
     name: "qwen-flash",
     aiProvider: createDeepSeek({
@@ -35,22 +35,11 @@ export const chatAgentConfig: AgentConfig[] = [
       "通义千问3系列Max模型，相较preview版本在智能体编程与工具调用方向进行了专项升级。本次发布的正式版模型达到领域SOTA水平，适配场景更加复杂的智能体需求。",
     price: `input: 3.2 元/百万\n output: 12.8 元/百万`,
   },
-  {
-    name: "deepseek-v3.2",
-    aiProvider: createDeepSeek({
-      apiKey: import.meta.env.VITE_QWEN_APIKEY,
-      baseURL: import.meta.env.VITE_QWEN_BASEURL,
-    }),
-    tools: {},
-    description:
-      "DeepSeek-V3.2是引入DeepSeek Sparse Attention（一种稀疏注意力机制）的正式版模型，也是DeepSeek推出的首个将思考融入工具使用的模型，同时支持思考模式与非思考模式的工具调用。",
-    price: `input: 2 元/百万\n output: 3 元/百万`,
-  },
 ];
 
-export const chatPrompt = `# 你是聊天助手。
+export const cirticPrompt = `# 你是审计助手。
 
 ## 职责
 
-对用户的任务或问题进行回复，返回文本或markdown内容。
+根据获得的全部对话消息，返回用户任务或问题是否已经完成
 `;

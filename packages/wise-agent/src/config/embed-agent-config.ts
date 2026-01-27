@@ -1,10 +1,10 @@
 import type { AgentConfig } from "../../types";
-import { createOpenAI } from "@ai-sdk/openai";
+import { createDeepSeek } from "@ai-sdk/deepseek";
 
 export const embedAgentConfig: AgentConfig[] = [
   {
     name: "qwen3-rerank",
-    aiProvider: createOpenAI({
+    aiProvider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -15,7 +15,7 @@ export const embedAgentConfig: AgentConfig[] = [
   },
   {
     name: "text-embedding-v4",
-    aiProvider: createOpenAI({
+    aiProvider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),

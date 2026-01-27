@@ -28,14 +28,14 @@ NodeJS & BrowserJS
 
 ## 子代理的功能
 
-- PlanAgent： 接收对话，生成子任务。 具有 rag,skills 等增强时，需要预先查询数据
-- ChatAgent: 普通对话能力。可能不附带工具
+- PlanAgent：任务规划助手, 接收对话，生成子任务。 具有 rag,skills 等增强时，需要预先查询数据
+- ChatAgent: 聊天助手,普通对话能力。可能不附带工具
 - EmbedAgent： 配合rag 的子代理
-- BrowserAgent: 读取网页的内容，无障碍树或截图的工具， 打开页面工具，接收 sessionId的工具的代理。
-- VoiceAgent: 语音识别
-- TTSAgent：语音合成
+- BrowserAgent: 浏览器助手 读取网页的内容，无障碍树或截图的工具， 打开页面工具，接收 sessionId的工具的代理。
+- VoiceAgent: 语音识别助手
+- TTSAgent：语音生成助手
 - VisionAgent： 图像识别
 - GenImageAgent：图像生成
 - GenVideo： 视频生成
 - GenCodeAgent： 代码生成
-- CriticAgent： 审计代理，判断全部任务是否完成
+- CriticAgent： 审计助手 判断全部任务是否完成

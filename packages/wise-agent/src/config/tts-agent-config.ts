@@ -1,10 +1,10 @@
 import type { AgentConfig } from "../../types";
-import { createOpenAI } from "@ai-sdk/openai";
+import { createDeepSeek } from "@ai-sdk/deepseek";
 
 export const planAgentConfig: AgentConfig[] = [
   {
     name: "qwen3-tts-flash-realtime",
-    aiProvider: createOpenAI({
+    aiProvider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -15,7 +15,7 @@ export const planAgentConfig: AgentConfig[] = [
   },
   {
     name: "qwen3-tts-flash",
-    aiProvider: createOpenAI({
+    aiProvider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -26,7 +26,7 @@ export const planAgentConfig: AgentConfig[] = [
   },
   {
     name: "qwen-voice-enrollment",
-    aiProvider: createOpenAI({
+    aiProvider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -37,7 +37,7 @@ export const planAgentConfig: AgentConfig[] = [
   },
   {
     name: "cosyvoice-v3-flash",
-    aiProvider: createOpenAI({
+    aiProvider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -47,3 +47,10 @@ export const planAgentConfig: AgentConfig[] = [
     price: `input: 1元/每万字符`,
   },
 ];
+
+export const ttsPrompt = `# 你是语音识别助手。
+
+## 职责
+
+根据文字生成相应的语音文件
+`;

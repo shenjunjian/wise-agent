@@ -6,7 +6,7 @@ const wiseAgent = useWiseAgent();
 
 const inputStr = ref("");
 function send() {
-  wiseAgent.chat(inputStr.value);
+  wiseAgent.chat();
 }
 </script>
 
@@ -16,7 +16,7 @@ function send() {
       <h1>内容区</h1>
     </div>
 
-    <input v-modal="inputStr" />
+    <input v-modal="inputStr" /><button @click="send">submit</button>
   </div>
 </template>
 

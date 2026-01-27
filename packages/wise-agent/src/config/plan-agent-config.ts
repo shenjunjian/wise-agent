@@ -1,10 +1,10 @@
 import type { AgentConfig } from "../../types";
-import { createOpenAI } from "@ai-sdk/openai";
+import { createDeepSeek } from "@ai-sdk/deepseek";
 
 export const planAgentConfig: AgentConfig[] = [
   {
     name: "qwen-flash",
-    aiProvider: createOpenAI({
+    aiProvider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -15,7 +15,7 @@ export const planAgentConfig: AgentConfig[] = [
   },
   {
     name: "qwen-plus",
-    aiProvider: createOpenAI({
+    aiProvider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -26,7 +26,7 @@ export const planAgentConfig: AgentConfig[] = [
   },
   {
     name: "qwen3-max",
-    aiProvider: createOpenAI({
+    aiProvider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -36,3 +36,31 @@ export const planAgentConfig: AgentConfig[] = [
     price: `input: 3.2 元/百万\n output: 12.8 元/百万`,
   },
 ];
+
+export const planPrompt = `# 你是任务规划助手。
+
+## 职责
+
+对用户的任务进行深度分析，理解用户的意图，将总任务拆分成一组子任务，对子任务进行合理的排序，为子任务分配合理的下级助手，监督子任务执行，让整个会话结束。
+
+## 步骤
+
+1. 理解用户的任务，并对任务的执行合理排序，防止用户叙述任务时，使用倒序的语句。
+2. 将总任务拆分为一组子任务，子任务必须要对应一个下级助手。
+3. 下发第一个子任务，等待接收子任务返回的结果
+4. 根据上个子任务结果，可以适当的调用当前子任务的列表。之后再下发下一条任务，直到所有子任务都结束。
+
+## 下级助手的说明
+
+- 聊天助手： 具有接收问题并询问AI大语言模型，返回文本或markdown 的内容的能力。通常用于问题回答，文本写作等
+- 浏览器助手：具有打开浏览器的指定网页，读取浏览器页面文字内容/无障碍内容/网页截图，操作浏览器页面，比如滚动，点击，填写等，向网页注入脚本并执行网页上的脚本等能力
+- 语音识别助手： 具有识别语音，转换为相应的文字的能力。甚至能识别多种语言和多种言的能力
+- 语音生成助手： 具有通过文本合成语音的能力，甚至能生成多种语言或多种言的能力，生成带感情或拟人音色的能力
+- 审计助手：根据全部会话消息，判断任务是否完成
+
+## 必要约束
+
+- 子任务必须对应一个助手
+- 最后一个子任务必须是审计助手
+- 只有审计助手返回成功时，整轮对话才能结束
+`;

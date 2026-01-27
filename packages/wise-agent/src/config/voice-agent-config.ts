@@ -1,10 +1,10 @@
-import type { AgentConfig } from "../../types";
-import { createOpenAI } from "@ai-sdk/openai";
+import type { AgentConfig } from "../../types.d.ts";
+import { createDeepSeek } from "@ai-sdk/deepseek";
 
 export const planAgentConfig: AgentConfig[] = [
   {
     name: "qwen3-asr-flash",
-    aiProvider: createOpenAI({
+    aiProvider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -15,7 +15,7 @@ export const planAgentConfig: AgentConfig[] = [
   },
   {
     name: "fun-asr",
-    aiProvider: createOpenAI({
+    aiProvider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -26,7 +26,7 @@ export const planAgentConfig: AgentConfig[] = [
   },
   {
     name: "qwen-audio-turbo",
-    aiProvider: createOpenAI({
+    aiProvider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -37,7 +37,7 @@ export const planAgentConfig: AgentConfig[] = [
   },
   {
     name: "fun-asr-realtime",
-    aiProvider: createOpenAI({
+    aiProvider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -47,3 +47,10 @@ export const planAgentConfig: AgentConfig[] = [
     price: `input: 0.33 元/秒`,
   },
 ];
+
+export const voicePrompt = `# 你是语音识别助手。
+
+## 职责
+
+将用户的声音转录为文字
+`;
