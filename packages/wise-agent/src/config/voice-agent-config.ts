@@ -1,10 +1,10 @@
 import type { AgentConfig } from "../../types.d.ts";
 import { createDeepSeek } from "@ai-sdk/deepseek";
 
-export const planAgentConfig: AgentConfig[] = [
+export const voiceAgentConfig: AgentConfig[] = [
   {
     name: "qwen3-asr-flash",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -15,7 +15,7 @@ export const planAgentConfig: AgentConfig[] = [
   },
   {
     name: "fun-asr",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -26,7 +26,7 @@ export const planAgentConfig: AgentConfig[] = [
   },
   {
     name: "qwen-audio-turbo",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -37,7 +37,7 @@ export const planAgentConfig: AgentConfig[] = [
   },
   {
     name: "fun-asr-realtime",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),

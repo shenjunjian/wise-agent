@@ -4,7 +4,7 @@ import { createDeepSeek } from "@ai-sdk/deepseek";
 export const chatAgentConfig: AgentConfig[] = [
   {
     name: "qwen-flash",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -15,7 +15,7 @@ export const chatAgentConfig: AgentConfig[] = [
   },
   {
     name: "qwen-plus",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -26,7 +26,7 @@ export const chatAgentConfig: AgentConfig[] = [
   },
   {
     name: "qwen3-max",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -37,7 +37,7 @@ export const chatAgentConfig: AgentConfig[] = [
   },
   {
     name: "deepseek-v3.2",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),

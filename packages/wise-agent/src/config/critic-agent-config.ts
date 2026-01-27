@@ -4,7 +4,7 @@ import { createDeepSeek } from "@ai-sdk/deepseek";
 export const criticAgentConfig: AgentConfig[] = [
   {
     name: "qwen-flash",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -15,7 +15,7 @@ export const criticAgentConfig: AgentConfig[] = [
   },
   {
     name: "qwen-plus",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -26,7 +26,7 @@ export const criticAgentConfig: AgentConfig[] = [
   },
   {
     name: "qwen3-max",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -37,7 +37,7 @@ export const criticAgentConfig: AgentConfig[] = [
   },
 ];
 
-export const cirticPrompt = `# 你是审计助手。
+export const criticPrompt = `# 你是审计助手。
 
 ## 职责
 

@@ -1,10 +1,10 @@
 import type { AgentConfig } from "../../types.d.ts";
 import { createDeepSeek } from "@ai-sdk/deepseek";
 
-export const chatAgentConfig: AgentConfig[] = [
+export const browserAgentConfig: AgentConfig[] = [
   {
     name: "qwen-flash",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -15,7 +15,7 @@ export const chatAgentConfig: AgentConfig[] = [
   },
   {
     name: "qwen-plus",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -26,7 +26,7 @@ export const chatAgentConfig: AgentConfig[] = [
   },
   {
     name: "qwen3-max",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -37,7 +37,7 @@ export const chatAgentConfig: AgentConfig[] = [
   },
   {
     name: "deepseek-v3.2",
-    aiProvider: createDeepSeek({
+    provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
       baseURL: import.meta.env.VITE_QWEN_BASEURL,
     }),
@@ -47,3 +47,14 @@ export const chatAgentConfig: AgentConfig[] = [
     price: `input: 2 元/百万\n output: 3 元/百万`,
   },
 ];
+
+export const browserPrompt = `# 你是浏览器助手。
+
+## 职责
+
+具有打开浏览器的指定网页，读取浏览器页面文字内容/无障碍内容/网页截图，操作浏览器页面，比如滚动，点击，填写等，向网页注入脚本并执行网页上的脚本等能力
+
+## 方法
+
+通过调用工具来实现各种功能！
+`;
