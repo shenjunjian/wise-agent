@@ -1,4 +1,4 @@
-import type { AgentConfig } from "../../types";
+import type { AgentConfig } from "../../types.d.ts";
 import { createDeepSeek } from "@ai-sdk/deepseek";
 
 export const chatAgentConfig: AgentConfig[] = [
