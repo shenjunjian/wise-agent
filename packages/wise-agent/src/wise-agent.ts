@@ -41,15 +41,15 @@ export class WiseAgent {
   async chat(message: string) {
     this.round++;
 
-    const stream = this.planAgent.stream({
+    const stream = await this.planAgent.stream({
       prompt: message,
     });
 
-    for await (const chunk of (await stream).fullStream) {
-      console.log("chunk:", chunk.type, chunk);
+    for await (const chunk of stream.fullStream) {
+      console.log("plane chunk:", chunk.type, chunk);
     }
 
-    console.log("stream: ===", stream);
+    console.log("plane stream: ===", stream);
   }
 
   /** 更改当前的某个代理的大模型配置 */
