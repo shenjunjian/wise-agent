@@ -15,7 +15,7 @@ export interface AgentConfig {
   /** ai@v6 下的模型提供器 */
   provider: ProviderV3;
   /** ai@v6 的 工具集合 */
-  tools: ToolSet;
+  tools?: ToolSet;
   /** 模型的描述 */
   description?: string;
   /** 价格的描述 */
@@ -24,6 +24,6 @@ export interface AgentConfig {
 
 export interface ToolAnswer {
   success: boolean;
-  message: ResponseMessage[];
+  message: string | any[];
   totalUsage: LanguageModelUsage;
 }

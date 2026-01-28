@@ -1,10 +1,10 @@
-import { ToolLoopAgent } from "ai";
+import { ToolLoopAgent, type ToolSet } from "ai";
 import type { AgentConfig } from "../../types.js";
 
-export function buildAgent(config: AgentConfig, prompt: string) {
+export function buildAgent(config: AgentConfig, prompt: string, tools?: ToolSet) {
   return new ToolLoopAgent({
     model: config.provider(config.name),
     instructions: prompt,
-    tools: config.tools,
+    tools: tools ? tools : null,
   });
 }
