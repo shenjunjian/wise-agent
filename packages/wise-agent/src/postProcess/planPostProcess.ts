@@ -39,7 +39,24 @@ export async function planPostProcess(wiseAgent: WiseAgent, stream: StreamTextRe
     });
     onFinish("plan", chunk, () => (wiseAgent.currentPlanMessage = null));
 
-    onText("plan", chunk, (msg) => wiseAgent.currentPlanMessage?.content.push(msg));
-    onTool(chunk, (msg) => wiseAgent.currentPlanMessage?.content.push(msg));
+    onText(
+      "plan",
+      chunk,
+      (msg) => {
+        wiseAgent.currentPlanMessage?.content.push(msg);
+      },
+      (msg) => {
+        wiseAgent.modelMessage.push({ role: "assistant", content: msg.content });
+      },
+    );
+    onTool(
+      chunk,
+      (msg) => {
+        wiseAgent.currentPlanMessage?.content.push(msg);
+      },
+      (msg) => {
+        wiseAgent.modelMessage.push({ role: "assistant", content: msg.toolInput }); // 存入 modelMessage
+      },
+    );
   }
 }

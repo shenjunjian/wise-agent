@@ -13,6 +13,15 @@ export async function chatPostProcess(wiseAgent: WiseAgent, stream: StreamTextRe
     });
     onFinish("chat", chunk, () => (wiseAgent.currentChatMessage = null));
 
-    onText("chat", chunk, (msg) => wiseAgent.currentChatMessage?.content.push(msg));
+    onText(
+      "chat",
+      chunk,
+      (msg) => {
+        wiseAgent.currentChatMessage?.content.push(msg);
+      },
+      (msg) => {
+        wiseAgent.modelMessage.push({ role: "tool", content: msg.content });
+      },
+    );
   }
 }

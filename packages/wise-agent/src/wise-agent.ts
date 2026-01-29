@@ -66,7 +66,7 @@ export class WiseAgent {
     });
 
     const stream = await this.planAgent.stream({
-      messages: this.modelMessage,
+      messages: [...this.modelMessage],
     });
 
     await planPostProcess(this, stream);
