@@ -5,6 +5,7 @@ export function buildAgent(config: AgentConfig, prompt: string, tools?: ToolSet)
   return new ToolLoopAgent({
     model: config.provider(config.name),
     instructions: prompt,
-    tools: tools ? tools : null,
+    tools: tools || {},
+    providerOptions: config.providerOptions || null,
   });
 }

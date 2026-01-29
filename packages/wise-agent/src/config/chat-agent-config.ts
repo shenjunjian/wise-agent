@@ -3,16 +3,6 @@ import { createDeepSeek } from "@ai-sdk/deepseek";
 
 export const chatAgentConfig: AgentConfig[] = [
   {
-    name: "qwen-flash",
-    provider: createDeepSeek({
-      apiKey: import.meta.env.VITE_QWEN_APIKEY,
-      baseURL: import.meta.env.VITE_QWEN_BASEURL,
-    }),
-    description:
-      "Qwen3系列Flash模型，实现思考模式和非思考模式的有效融合，可在对话中切换模式。复杂推理类任务性能优秀，指令遵循、文本理解等能力显著提高。支持1M上下文长度，按照上下文长度进行阶梯计费",
-    price: `input: 0.15 元/百万\n output: 1.5 元/百万`,
-  },
-  {
     name: "qwen-plus",
     provider: createDeepSeek({
       apiKey: import.meta.env.VITE_QWEN_APIKEY,
@@ -22,6 +12,17 @@ export const chatAgentConfig: AgentConfig[] = [
       "Qwen3系列Plus模型，实现思考模式和非思考模式的有效融合，可在对话中切换模式。推理能力显著超过QwQ、通用能力显著超过Qwen2.5-Plus，达到同规模业界SOTA水平",
     price: `input: 0.8 元/百万\n output: 2 元/百万`,
   },
+  {
+    name: "qwen-flash",
+    provider: createDeepSeek({
+      apiKey: import.meta.env.VITE_QWEN_APIKEY,
+      baseURL: import.meta.env.VITE_QWEN_BASEURL,
+    }),
+    description:
+      "Qwen3系列Flash模型，实现思考模式和非思考模式的有效融合，可在对话中切换模式。复杂推理类任务性能优秀，指令遵循、文本理解等能力显著提高。支持1M上下文长度，按照上下文长度进行阶梯计费",
+    price: `input: 0.15 元/百万\n output: 1.5 元/百万`,
+  },
+
   {
     name: "qwen3-max",
     provider: createDeepSeek({
