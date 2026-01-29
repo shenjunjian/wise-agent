@@ -48,12 +48,12 @@ const buildCallChat = (wiseAgent: WiseAgent) =>
         abortSignal: wiseAgent.controller.signal,
       });
 
+      await chatPostProcess(wiseAgent, stream);
+
       // 读取 reason, 文字结果， file结果，totalToken.....
       if (wiseAgent.debug) {
         await stream_log(stream, "chat");
       }
-
-      await chatPostProcess(wiseAgent, stream);
       return {
         success: true,
         message: await stream.text,

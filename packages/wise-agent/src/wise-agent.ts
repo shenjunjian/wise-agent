@@ -69,11 +69,10 @@ export class WiseAgent {
       messages: this.modelMessage,
     });
 
+    await planPostProcess(this, stream);
     if (this.debug) {
       await stream_log(stream, "plan");
     }
-
-    await planPostProcess(this, stream);
 
     console.log("本轮对话后：wiseAgent=", this);
   }
