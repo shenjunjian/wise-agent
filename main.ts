@@ -75,7 +75,7 @@ console.log(agent)
 // agent.reLastChat()
 
 // // 6. agent的属性
-agent.debugStream = true // 在控制台上，打印流消息
+agent.debugStream = false // 在控制台上，打印流消息
 // agent.messages = [] // 与 llm 接口对话的消息体
 // agent.uiMessages = [] // llm 流消息返回的消息体
 // agent.status = ref('init') // 智能体当前状态
@@ -153,35 +153,6 @@ await agent.chatStream({
   role: 'user',
   content: '查询当前时间'
 })
+ 
 
-setTimeout(async () => {
- await agent.chatStream({
-    role: 'user',
-    content: '你是什么颜色 '
-  })
-}, 5000)
-
-setTimeout(async () => {
-  await agent.chatStream({
-    role: 'user',
-    content: '中国建党多少年'
-  })
-}, 10000)
-
-
-setTimeout(async () => {
-  await agent.chatStream({
-    role: 'user',
-    content: '美国建立多少年'
-  })
-}, 15000)
-
-// setTimeout(async () => {
-// await  agent.chatStream({
-//     role: 'user',
-//     content: '查询当前时间'
-//   })
-//   document.body.innerHTML = `<pre>${JSON.stringify(agent.uiMessages.value, null, 2)}</pre>`
-// }, 5000)
-
-// document.body.innerHTML = `<pre>${JSON.stringify(agent.uiMessages.value, null, 2)}</pre>`
+document.body.innerHTML = `<pre>${JSON.stringify(agent.uiMessages.value, null, 2)}</pre>`
