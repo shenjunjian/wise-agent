@@ -3,7 +3,7 @@ import type { NextAgent } from '../next-agent'
 import { ref } from 'vue'
 
 /** 工具管理。
- * 四个来源：settings.tools, extraTools, mcpServers.tools，skills.tools
+ * 三个来源：settings.tools,   mcpServers.tools，skills.tools
  * 一个删除: ignoreToolNames.value
  * */
 export function useTools(agent: NextAgent) {
@@ -21,7 +21,6 @@ export function useTools(agent: NextAgent) {
     Object.assign(
       finalTools,
       agent.settings.tools || {},
-      agent.extraTools,
       agent.$mcpServers.tools,
       agent.$skills.tools
     )

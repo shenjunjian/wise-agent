@@ -57,8 +57,6 @@ export class NextAgent {
   $mcpServers = useMcpServers(this) // 必须在$tools之前初始化，（先刷新tools, 再收集tools)
   $skills = useSkills(this)
   $tools = useTools(this)
-  // 不用添加到 $mcpServers中，就能加载的tools
-  extraTools: ToolSet = {}
   status: Ref<NextAgentStatus> = useStatus(this)
 
   /** 初始化智能体， 设置大语言模型

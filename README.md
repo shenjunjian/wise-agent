@@ -11,7 +11,7 @@
    未来可以通过增加Server 来增加【子Agent】的能力, 比如：识图server, 语音server , genuiServer .......
 3. 支持 Skills 的配置，渐进式的披露内容。
 4. 支持 Prompt 系统提示词的管理。
-5. 支持 灵活的tools 挂载管理。 tools的途径： ToolLoopAgentSettings.tools ,agent.extraTools, mcpServer.tools,skills.tools 它们会在对话开始时，自动刷新加载。
+5. 支持 灵活的tools 挂载管理。 tools的途径： ToolLoopAgentSettings.tools , mcpServer.tools,skills.tools 它们会在对话开始时，自动刷新加载。
 
 ## 使用方法
 
@@ -98,7 +98,6 @@ agent.debugStream = true // 在控制台上，打印流消息
 agent.messages = ref([]) // 与 llm 接口对话的消息体
 agent.uiMessages = ref([]) // llm 流消息返回的消息体
 agent.status = ref('init') // 智能体当前状态
-agent.extraTools = {} // ai-sdk 支持的 ToolSet 对象
 
 agent.$conversations = {} // 多个会话管理，可以切换，保存会话等
 agent.$prompts = {} // 提示词管理
@@ -106,23 +105,6 @@ agent.$mcpServers = [] // mcpServer管理
 agent.$skills = {} // skills管理
 agent.$tools = {} // 最终的tools 管理(汇集各个来源)
 
-// 6.1 extraTools
-import { tool } from 'ai'
-import { z } from 'zod'
-
-const weatherTool = tool({
-  description: '查询某地天气',
-  inputSchema: z.object({
-    city: z.string().describe('城市')
-  }),
-  execute: async ({ city }) => {
-    return { temperature: 24, conditions: '晴' }
-  }
-})
-
-agent.extraTools = {
-  weatherTool
-}
 
 // 6.2 会话管理，自动localstorage保存
 agent.$conversations.conversations = [] // 会话列表， 第一条为当前会话
