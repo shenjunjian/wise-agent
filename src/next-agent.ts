@@ -9,6 +9,7 @@ import { useMcpServers } from './hooks/useMcpServers'
 import { useStatus, type NextAgentStatus } from './hooks/useStatus'
 import { useSkills } from './hooks/useSkills'
 import { useTools } from './hooks/useTools'
+import { useCompress } from './hooks/useCompress'
 
 /** 用户界面渲染的消息体 */
 export type UIMessage =
@@ -57,6 +58,7 @@ export class NextAgent {
   $mcpServers = useMcpServers(this) // 必须在$tools之前初始化，（先刷新tools, 再收集tools)
   $skills = useSkills(this)
   $tools = useTools(this)
+  $compress = useCompress(this) // 压缩对话历史,放到所有hooks之后。因为它之后可能会修改 messages的值
   status: Ref<NextAgentStatus> = useStatus(this)
 
   /** 初始化智能体， 设置大语言模型

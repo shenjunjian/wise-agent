@@ -154,4 +154,26 @@ await agent.chatStream({
   content: '查询当前时间'
 })
 
+// setTimeout(async () => {
+//  await agent.chatStream({
+//     role: 'user',
+//     content: '查询当前时间'
+//   })
+// }, 1000)
+
+// setTimeout(async () => {
+//   await agent.chatStream({
+//     role: 'user',
+//     content: '查询当前时间'
+//   })
+// }, 3000)
+
+// setTimeout(async () => {
+// await  agent.chatStream({
+//     role: 'user',
+//     content: '查询当前时间'
+//   })
+//   document.body.innerHTML = `<pre>${JSON.stringify(agent.uiMessages.value, null, 2)}</pre>`
+// }, 5000)
+
 document.body.innerHTML = `<pre>${JSON.stringify(agent.uiMessages.value, null, 2)}</pre>`
