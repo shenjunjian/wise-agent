@@ -27,7 +27,7 @@ document.modelContext.registerTool(
       required: []
     },
     execute: async () => {
-      return `当前时间是: ${new Date().toLocaleTimeString()}`
+      return `当前时间是: ${new Date().toLocaleDateString()}`
     }
   },
   {
@@ -55,7 +55,7 @@ const lmstudio = createOpenAICompatible({
 
 // 1. 构造agent, 参考 ：https://ai-sdk.dev/docs/agents/building-agents#creating-an-agent
 const agent = new NextAgent({
-  model: lmstudio("mistralai/ministral-3-3b")
+  model: lmstudio("google/gemma-4-26b-a4b-qat")
   // .........  ToolLoopAgentSettings 支持的其它参数
   // 比如： tools, stopWhen, temperature, ...
 })
@@ -154,19 +154,27 @@ await agent.chatStream({
   content: '查询当前时间'
 })
 
-// setTimeout(async () => {
-//  await agent.chatStream({
-//     role: 'user',
-//     content: '查询当前时间'
-//   })
-// }, 1000)
+setTimeout(async () => {
+ await agent.chatStream({
+    role: 'user',
+    content: '你是什么颜色 '
+  })
+}, 5000)
 
-// setTimeout(async () => {
-//   await agent.chatStream({
-//     role: 'user',
-//     content: '查询当前时间'
-//   })
-// }, 3000)
+setTimeout(async () => {
+  await agent.chatStream({
+    role: 'user',
+    content: '中国建党多少年'
+  })
+}, 10000)
+
+
+setTimeout(async () => {
+  await agent.chatStream({
+    role: 'user',
+    content: '美国建立多少年'
+  })
+}, 15000)
 
 // setTimeout(async () => {
 // await  agent.chatStream({
@@ -176,4 +184,4 @@ await agent.chatStream({
 //   document.body.innerHTML = `<pre>${JSON.stringify(agent.uiMessages.value, null, 2)}</pre>`
 // }, 5000)
 
-document.body.innerHTML = `<pre>${JSON.stringify(agent.uiMessages.value, null, 2)}</pre>`
+// document.body.innerHTML = `<pre>${JSON.stringify(agent.uiMessages.value, null, 2)}</pre>`

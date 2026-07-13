@@ -15,7 +15,7 @@ export const useCompress = (agent: NextAgent) => {
       agent.messages.value = [
         {
           role: "user",
-          content: '[压缩后的对话历史]:'+result.text,
+          content: '[历史对话摘要]:'+result.text,
         },
       ];
     }
