@@ -1,6 +1,7 @@
 import { registerOnPage, registerPageAgentTool } from './src/index'
 import { NextAgent } from './src/index'
-import { createDeepSeek } from '@ai-sdk/deepseek'
+import { createOpenAICompatible } from '@ai-sdk/openai-compatible';
+
 import { tool } from 'ai'
 import { z } from 'zod'
 
@@ -39,14 +40,22 @@ document.modelContext.registerTool(
 
 // ----------------------------- 测试AGENT -----------------------------
 
-const deepseek = createDeepSeek({
-  apiKey: 'sk-1234',
-  baseURL: 'https://api.deepseek.com'
-})
+// const deepseek = createDeepSeek({
+//   apiKey: 'sk-1234',
+//   baseURL: 'https://api.deepseek.com'
+// })
+
+
+const lmstudio = createOpenAICompatible({
+  name: 'lmstudio',
+  baseURL: 'http://localhost:1234/v1',
+  apiKey: 'dummy',
+});
+ 
 
 // 1. 构造agent, 参考 ：https://ai-sdk.dev/docs/agents/building-agents#creating-an-agent
 const agent = new NextAgent({
-  model: deepseek('deepseek-chat')
+  model: lmstudio("zai-org/glm-4.7-flash")
   // .........  ToolLoopAgentSettings 支持的其它参数
   // 比如： tools, stopWhen, temperature, ...
 })
