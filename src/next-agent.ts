@@ -106,8 +106,7 @@ export class NextAgent {
       },
       onFinish: async () => {
         try {
-          // stream.response.message 就是ai-sdk 包装的ai 多轮对话消息, 拼接到**主消息列表**
-          const aiMessages = (await streamResult.response).messages // WARN: abort时， 这个流会错误，取不回response.messages,就会丢弃掉ai的消息
+          const aiMessages = (await streamResult.responseMessages)
           this.messages.value = this.messages.value.concat(aiMessages)
         } catch (error) {
           console.error('StreamVisitor onFinish error', error)

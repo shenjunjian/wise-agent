@@ -55,7 +55,7 @@ const lmstudio = createOpenAICompatible({
 
 // 1. 构造agent, 参考 ：https://ai-sdk.dev/docs/agents/building-agents#creating-an-agent
 const agent = new NextAgent({
-  model: lmstudio("zai-org/glm-4.7-flash")
+  model: lmstudio("mistralai/ministral-3-3b")
   // .........  ToolLoopAgentSettings 支持的其它参数
   // 比如： tools, stopWhen, temperature, ...
 })
